@@ -10,6 +10,12 @@ package santorini;
  * @author tarri
  */
 public class Grille {
+    
+    public static final String ANSI_BLACK = "\u001B[30m";//coresspondent à la couleur du texte affiché dans afficherGrilleSurConsole()
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    
     Cellule cellule [][]= new Cellule [5][5];
     //plateau de jeu 
     
@@ -97,6 +103,14 @@ public class Grille {
         for(int i=0;i<5;i++){
             for(int j=0;j<5;j++){
                 cellule[i][j].viderCellule();
+            }
+        }
+    }
+    
+    public void afficherGrille(){
+        for(int i =0;i<5; i++){
+            for(int j=0;j<5;j++){
+                
             }
         }
     }

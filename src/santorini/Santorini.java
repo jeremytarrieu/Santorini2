@@ -22,9 +22,9 @@ public class Santorini {
         boolean [][] grilleMoove = maGrille.deplacementsPossibles(1, 0);//on deplace l'ouvrier 
         for(int y=4;y>-1;y--){
             for(int x=0;x<5;x++){
-                //System.out.print(grilleMoove[x][y]+"\t");
-            }//System.out.println(y);
-        }//System.out.print("0\t1\t2\t3\t4");
+                System.out.print(grilleMoove[x][y]+"\t");
+            }System.out.println(y);
+        }System.out.print("0\t1\t2\t3\t4");
         
         
     }
