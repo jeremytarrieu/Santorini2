@@ -27,13 +27,13 @@ public class Partie {
      return null;
     }
     
-    public boolean construireOuvrier(Ouvrier unOuvrier, int x, int y){
+    /*public boolean construireOuvrier(Ouvrier unOuvrier, int x, int y){
         for(int i =0;i<5;i++){
             for(j=0;j<5;j++){
                 
             }
         }
-    }
+    } */
     
     public void initialiserPartie(){
         grilleJeu.viderGrille();
