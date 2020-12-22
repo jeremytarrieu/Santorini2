@@ -31,7 +31,7 @@ public class Partie {
        /*prends en entrée un ouvrier (celui qui vient de se déplacer) courant et les coordonées de construciton
         renvoie true si la construciton s'est faite et false sinon*/
         
-        for(int i =0;i<5;i++){
+        for(int i =0;i<5;i++){ // pour chasue cellule on regarde s'il y a l'ouvrier et s'il peut construire sur la case voulue
             for(int  j =0;j<5;j++){
                 if(grilleJeu.cellule[i][j].ouvrierCourant == unOuvrier && grilleJeu.constructionsPossibles(i,j)[x][y] == true){
                     return grilleJeu.cellule[x][y].construire(); // renvoie true 
