@@ -12,12 +12,10 @@ package santorini;
 public class Ouvrier {
     String couleur = new String();
     String joueur = new String();
-    int numero;// chaque joueur possède 2 ouvriers
     
-    public Ouvrier(Joueur unJoueur, int unNumero){
+    public Ouvrier(Joueur unJoueur){
         joueur = unJoueur.nom;
         couleur = unJoueur.couleur;
-        numero = unNumero;
     }
     
     public Ouvrier(){

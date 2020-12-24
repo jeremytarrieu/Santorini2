@@ -10,11 +10,11 @@ package santorini;
  * @author tarri
  */
 public class Grille {
-    
-    public static final String ANSI_BLACK = "\u001B[30m";//coresspondent à la couleur du texte affiché dans afficherGrilleSurConsole()
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
+   //coresspondent à la couleur du texte affiché dans afficherGrilleSurConsole() 
+    public static final String ANSI_BLACK = "\u001B[30m";//sol/étage 4
+    public static final String ANSI_RED = "\u001B[31m";//étage 1
+    public static final String ANSI_YELLOW = "\u001B[33m";//étage 2
+    public static final String ANSI_BLUE = "\u001B[34m";//étage 3
     
     Cellule cellule [][]= new Cellule [5][5];
     //plateau de jeu 
@@ -81,7 +81,7 @@ public class Grille {
         return grilleRenvoi;
     }
     
-    public boolean etreGagnantPourJoueur(Joueur unJoueur){
+    public boolean etreGagnant(Joueur unJoueur){
         /* Prends en agrument un Joueur et renvoie un booleen.
         Cherche pour chaque cellule de la grille si l'ouvrier courant appartient au Joueur 
         et si le batiment est construit au troisieme etage.
@@ -99,6 +99,51 @@ public class Grille {
         }return false;
     }
     
+    public boolean etreBloque(Joueur unJoueur){
+        /*Prends un joueur et vérifie si ses ouvriers peuvent se déplacer, 
+        si au moins 1 peut alors le joueur n'a pas perdu et on renvoie false
+        */
+        for (int i = 0; i<5;i++){
+            for (int j = 0; j<5; j++){
+                if(cellule[i][j].ouvrierCourant == unJoueur.ouvriers[0] || cellule[i][j].ouvrierCourant == unJoueur.ouvriers[1]){
+                    // on vérifie qu'il y a un ouvrier du joueur dans la case 
+                    for(int x = 0; i<5; x++){
+                        // on parcourt toutes les cases de deplacements possibles
+                        for(int y =0; i<5; y++){
+                            // si deplacementPossibles sont tous false pour les ouvriers du joueur alors on renvoie true pck il ne peut plus bouger 
+                            if(deplacementsPossibles(i,j)[x][y]==true){
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }return true;
+    }
+    
+    public boolean nePasPouvroiconstruire(Joueur unJoueur){
+            /*Prends un joueur et vérifie si ses ouvriers peuvent se déplacer, 
+        si au moins 1 peut alors le joueur n'a pas perdu et on renvoie false
+        */
+        for (int i = 0; i<5;i++){
+            for (int j = 0; j<5; j++){
+                if(cellule[i][j].ouvrierCourant == unJoueur.ouvriers[0] || cellule[i][j].ouvrierCourant == unJoueur.ouvriers[1]){
+                    // on vérifie qu'il y a un ouvrier du joueur dans la case 
+                    for(int x = 0; i<5; x++){
+                        // on parcourt toutes les cases de deplacements possibles
+                        for(int y =0; i<5; y++){
+                            // si deplacementPossibles sont tous false pour les ouvriers du joueur alors on renvoie true pck il ne peut plus bouger 
+                            if(deplacementsPossibles(i,j)[x][y]==true){
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
     public void viderGrille(){
         for(int i=0;i<5;i++){
             for(int j=0;j<5;j++){
@@ -107,11 +152,5 @@ public class Grille {
         }
     }
     
-    public void afficherGrille(){
-        for(int i =0;i<5; i++){
-            for(int j=0;j<5;j++){
-                
-            }
-        }
-    }
+
 }

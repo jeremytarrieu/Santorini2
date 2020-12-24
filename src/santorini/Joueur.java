@@ -15,6 +15,11 @@ public class Joueur {
     int nbConstruction;
     Ouvrier [] ouvriers = new Ouvrier [2];
     
+    public Joueur (String unNom){
+        // constructeur qui définit le nom dans DebuterPartie()
+        nom = unNom;
+    }
+    
     public void affecterCouleur(String uneCouleur){
         couleur = uneCouleur;
     }
