@@ -48,6 +48,12 @@ public class Cellule {
         return false;
     }
     
+    public boolean presenceOuvrier(int x, int y){
+        if(cellule[x][y].ouvrierCourant != null){
+            return true;
+        }return false;
+    }
+    
     String lireCouleurOuvrier(){
         if (ouvrierCourant == null){
         return "vide";}
