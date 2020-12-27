@@ -40,16 +40,19 @@ public class Cellule {
         ouvrierCourant = null;
         return ouvrierRetour;
     }
-    public boolean construire(){
-        //si le batiment n'a pas de toit et qu'il n'y a pas de joueur dessus, alors on peut construire
-        if (construction < 4 && ouvrierCourant == null){
+    public void construire(){
+        
         construction++;
-        return true;}
+    }
+    
+    public boolean constructionMax(){
+        //si la construction a atteint son niveau max on renvoie true
+        if(construction == 4) return true;
         return false;
     }
     
     
-    String lireCouleurOuvrier(){
+    public String lireCouleurOuvrier(){
         if (ouvrierCourant == null){
         return "vide";}
         return ouvrierCourant.couleur;

@@ -22,6 +22,8 @@ public class Joueur {
     
     public void affecterCouleur(String uneCouleur){
         couleur = uneCouleur;
+        ouvriers[0] = new Ouvrier(this);
+        ouvriers[1] = new Ouvrier(this);
     }
     
     public void ajouterOuvrier(Ouvrier unOuvrier, int numero){

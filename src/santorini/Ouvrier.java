@@ -10,7 +10,7 @@ package santorini;
  * @author tarri
  */
 public class Ouvrier {
-    String couleur = new String();
+    String couleur = new String(); // "rouge" ou "bleu"
     String joueur = new String();
     
     public Ouvrier(Joueur unJoueur){
@@ -18,9 +18,8 @@ public class Ouvrier {
         couleur = unJoueur.couleur;
     }
     
-    public Ouvrier(){
+    public Ouvrier(){}
     
-    }
     public String lireCouleur(){
         return couleur;
     }

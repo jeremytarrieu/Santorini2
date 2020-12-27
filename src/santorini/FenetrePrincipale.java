@@ -5,19 +5,50 @@
  */
 package santorini;
 
+import java.awt.Color;
+import java.util.Scanner;
+
 /**
  *
  * @author tarri
  */
 public class FenetrePrincipale extends javax.swing.JFrame {
 
-    Joueur listeJoueurs[] = new Joueur [2];
+    Joueur listeJoueurs[] = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
-    
+    Cellule clic1; // cette variable se verra affecté d'une cellule qui sera la 
+    //cellule sur laquelle le joueur cliquera en premier temps pour placer ou deplacer son ouvrier
+    Cellule clic2;// cette variable sera la cellule sur laquelle le joueur cliquera en second temps pour construir
+    boolean statutClic;// le statut clique permet de savoir si une première cellule à été selectionnée, false clique 1, true clqiue 2
+    boolean placementJoueurs = true;
+
     public FenetrePrincipale() {
         initComponents();
         PanneauDeJeu.setVisible(false);
+        PanneauInfos.setVisible(false);
+
+        for (int i = 4; i > -1; i--) {
+            for (int j = 0; j < 5; j++) {
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.cellule[i][j]);
+                cellGraph.addActionListener(new java.awt.event.ActionListener() { // l'écouteur du boutton 
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Cellule c = cellGraph.celluleAssociee;
+                        if (statutClic == false) {// si on en est au premier clique
+                            statutClic = true;
+                            clic1 = c;
+                            txtInfos.setText("Vous avez choisi une case");
+                        } else {// si on est au second
+                            clic2 = c;
+                            deplacerOuvrier(clic1,clic2);
+                            statutClic = false;
+                            txtInfos.setText("Vous avez choisi une case");
+                        }
+                    }
+                });
+                PanneauDeJeu.add(cellGraph);
+            }
+        }
     }
 
     /**
@@ -29,36 +60,77 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanneauIntro = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         Panneau_nom = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txt_nom_j2 = new javax.swing.JTextField();
-        txt_nom_j1 = new javax.swing.JTextField();
+        nomJ2 = new javax.swing.JTextField();
+        nomJ1 = new javax.swing.JTextField();
         btn_start = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btnValiderNoms = new javax.swing.JButton();
+        J1Couleur = new javax.swing.JLabel();
+        J2Couleur = new javax.swing.JLabel();
         PanneauDeJeu = new javax.swing.JPanel();
+        PanneauInfos = new javax.swing.JPanel();
+        txtPI = new javax.swing.JLabel();
+        nomJoueurCourant = new javax.swing.JLabel();
+        txtInfos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Panneau_nom.setBackground(new java.awt.Color(255, 204, 204));
+        PanneauIntro.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Papyrus", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("SANTOPYRAMID");
+
+        javax.swing.GroupLayout PanneauIntroLayout = new javax.swing.GroupLayout(PanneauIntro);
+        PanneauIntro.setLayout(PanneauIntroLayout);
+        PanneauIntroLayout.setHorizontalGroup(
+            PanneauIntroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanneauIntroLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+        PanneauIntroLayout.setVerticalGroup(
+            PanneauIntroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanneauIntroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(PanneauIntro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
+
+        Panneau_nom.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Jouieur 1 : ");
 
         jLabel2.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Jouieur 2 : ");
 
-        txt_nom_j2.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
-        txt_nom_j2.addActionListener(new java.awt.event.ActionListener() {
+        nomJ2.setBackground(new java.awt.Color(255, 255, 255));
+        nomJ2.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        nomJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nom_j2ActionPerformed(evt);
+                nomJ2ActionPerformed(evt);
             }
         });
 
-        txt_nom_j1.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
-        txt_nom_j1.addActionListener(new java.awt.event.ActionListener() {
+        nomJ1.setBackground(new java.awt.Color(255, 255, 255));
+        nomJ1.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        nomJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nom_j1ActionPerformed(evt);
+                nomJ1ActionPerformed(evt);
             }
         });
 
@@ -70,24 +142,60 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Couleur  Joueur 1 :");
+
+        jLabel5.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Couleur Joueur 2 : ");
+
+        btnValiderNoms.setFont(new java.awt.Font("Papyrus", 2, 24)); // NOI18N
+        btnValiderNoms.setText("Valider");
+        btnValiderNoms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValiderNomsActionPerformed(evt);
+            }
+        });
+
+        J1Couleur.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+
+        J2Couleur.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+
         javax.swing.GroupLayout Panneau_nomLayout = new javax.swing.GroupLayout(Panneau_nom);
         Panneau_nom.setLayout(Panneau_nomLayout);
         Panneau_nomLayout.setHorizontalGroup(
             Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panneau_nomLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_nom_j1)
-                    .addComponent(txt_nom_j2))
-                .addContainerGap())
             .addGroup(Panneau_nomLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(btn_start, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Panneau_nomLayout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomJ2)
+                            .addComponent(nomJ1)))
+                    .addGroup(Panneau_nomLayout.createSequentialGroup()
+                        .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Panneau_nomLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)))
+                            .addGroup(Panneau_nomLayout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnValiderNoms, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_start, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Panneau_nomLayout.createSequentialGroup()
+                                .addGap(195, 195, 195)
+                                .addComponent(J1Couleur, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Panneau_nomLayout.createSequentialGroup()
+                                .addGap(168, 168, 168)
+                                .addComponent(J2Couleur, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 94, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         Panneau_nomLayout.setVerticalGroup(
             Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,36 +203,104 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nom_j1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(nomJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nom_j2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnValiderNoms)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(J1Couleur)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(J2Couleur)
+                .addGap(38, 38, 38)
                 .addComponent(btn_start, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
-        getContentPane().add(Panneau_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 410, 240));
+        getContentPane().add(Panneau_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 500, 600));
 
         PanneauDeJeu.setBackground(new java.awt.Color(204, 255, 255));
-        PanneauDeJeu.setLayout(new java.awt.GridLayout());
-        getContentPane().add(PanneauDeJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1000, 1000));
+        PanneauDeJeu.setLayout(new java.awt.GridLayout(5, 5));
+        getContentPane().add(PanneauDeJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 500, 500));
 
-        setBounds(0, 0, 1469, 1205);
+        PanneauInfos.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtPI.setBackground(new java.awt.Color(255, 255, 255));
+        txtPI.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        txtPI.setText("C'est à :");
+
+        nomJoueurCourant.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtInfos.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout PanneauInfosLayout = new javax.swing.GroupLayout(PanneauInfos);
+        PanneauInfos.setLayout(PanneauInfosLayout);
+        PanneauInfosLayout.setHorizontalGroup(
+            PanneauInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanneauInfosLayout.createSequentialGroup()
+                .addGroup(PanneauInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanneauInfosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtPI)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nomJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanneauInfosLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(txtInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanneauInfosLayout.setVerticalGroup(
+            PanneauInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanneauInfosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanneauInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nomJoueurCourant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(txtInfos))
+        );
+
+        getContentPane().add(PanneauInfos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 500, 100));
+
+        setBounds(0, 0, 518, 746);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_nom_j1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nom_j1ActionPerformed
+    private void nomJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomJ1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nom_j1ActionPerformed
+    }//GEN-LAST:event_nomJ1ActionPerformed
 
-    private void txt_nom_j2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nom_j2ActionPerformed
+    private void nomJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomJ2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nom_j2ActionPerformed
+    }//GEN-LAST:event_nomJ2ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
-        PanneauDeJeu.setVisible(true);
+        if (listeJoueurs[0].couleur != null && listeJoueurs[1] != null) {
+            Panneau_nom.setVisible(false);
+            PanneauDeJeu.setVisible(true);
+            PanneauInfos.setVisible(true);
+            PanneauDeJeu.repaint(); 
+            btn_start.setEnabled(false);
+            //debuterPartie();
+        }
     }//GEN-LAST:event_btn_startActionPerformed
+
+    private void btnValiderNomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderNomsActionPerformed
+        if (nomJ1.getText() != null && nomJ2.getText() != null && nomJ1.getText() != nomJ2.getText()) {
+            nomJ1.setEnabled(false);// on bloque la saisie des noms
+            nomJ2.setEnabled(false);
+            btnValiderNoms.setEnabled(false);
+            initialiserPartie();
+            J1Couleur.setText(listeJoueurs[0].couleur + "");
+            J2Couleur.setText(listeJoueurs[1].couleur + "");
+
+        }
+    }//GEN-LAST:event_btnValiderNomsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,13 +337,143 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         });
     }
 
+    void attribuerCouleur() {
+        listeJoueurs[0].affecterCouleur("rouge");
+        listeJoueurs[1].affecterCouleur("bleu");
+    }
+
+    void initialiserPartie() {
+        // on vide la grille
+        grilleJeu.viderGrille();
+        
+        statutClic = false;
+
+        //on demande les noms des joueurs
+        String nomJoueur1 = nomJ1.getText();
+        String nomJoueur2 = nomJ2.getText();
+        listeJoueurs[0] = new Joueur(nomJoueur1);
+        listeJoueurs[1] = new Joueur(nomJoueur2);
+
+        attribuerCouleur();
+        joueurCourant = listeJoueurs[1];
+        
+    }
+
+    public void debuterPartie() {
+        //préparation de la partie  
+        Joueur vainqueur;
+
+        joueurCourant = listeJoueurs[0];
+        
+        placerOuvrier(0);
+        placerOuvrier(1);
+        
+        prochainJoueur();
+
+        placerOuvrier(0);
+        placerOuvrier(1);
+        
+        prochainJoueur();
+        
+
+        do {
+            prochainJoueur();//on change de joueurCourant
+            
+            vainqueur = tourDeJeu();
+        } while (vainqueur == null);
+        System.out.print("Fin : victoire de " + joueurCourant.nom);
+    }
+
+    public void placerOuvrier(int nbOuvrier) {
+        txtInfos.setText(joueurCourant.nom+" cliquez sur une case pour placer votre Ouvrrier n°"+nbOuvrier);
+        while(clic1 == null) {}
+        clic1.ouvrierCourant = joueurCourant.ouvriers[nbOuvrier];
+        PanneauDeJeu.repaint();
+        statutClic = false;
+    }
+
+    public Cellule deplacerOuvrier(Cellule celluleDepart, Cellule celluleArrivee) {
+        /*  on vérifie si le déplacement est possible
+        on renvoie l'ouvrier courant si le déplacement s'est fait et null sinon*/
+
+        if (grilleJeu.deplacementPossible(celluleDepart, celluleArrivee) && celluleDepart.ouvrierCourant != null && celluleArrivee.affecterOuvrier(celluleDepart.recupererOuvrier()) == true) {
+            clic1 = null;// le bouton à cliquer est remis à null
+            clic2 = null;
+            while(clic2 == null){
+            txtInfos.setText("Cliquez sur une case où construire.");}
+            return celluleArrivee;
+        }
+        return null;
+    }
+
+    public boolean construireOuvrier(Cellule celluleOuvrier, Cellule celluleConst) {
+        /*prends en entrée un ouvrier (celui qui vient de se déplacer) courant et la cellule qui doit etre Construite
+        renvoie true si la construciton s'est faite et false sinon*/
+        if (celluleOuvrier == null) {
+            return false;
+        }
+
+        if (grilleJeu.constructionPossible(celluleOuvrier, celluleConst) == true) {
+            celluleConst.construire();
+            return true;
+        }
+        return false;
+    }
+
+    public Joueur tourDeJeu() {
+        // correspond à un tour de jeu, fait deplacer un ouvrier et construire à partir de celuici
+        PanneauDeJeu.repaint();
+        System.out.print("C'est à " + joueurCourant.nom + " de jouer (" + joueurCourant.couleur + ")\n");
+
+        /* tant que le tour ne s'est pas bien effectué 
+        ( que le joueur ne s'est pas déplacé correctement et qu'il n'a pas construit)
+        on le refait, 
+        si un joueur est perdant ou gagnant, le tour s'arrête et on renvoie le vainqueur,
+        si le tour s'est bien effectué et qu'il n'y a pas de vainqueur on renvoie null
+         */
+        while(clic1 == null && clic2 == null){
+            txtInfos.setText("Cliquez sur une case de départ et une case d'arrivée");
+        }
+        do {
+            if (grilleJeu.etreGagnant(joueurCourant) == true) {
+                return joueurCourant;
+            }
+            if (grilleJeu.etrePerdant(joueurCourant) == true) {
+                prochainJoueur();// on change de joueur courant pour envoyer le gagnant
+                return joueurCourant;
+            }
+        } while (construireOuvrier(deplacerOuvrier(clic1,clic2), clic2) == false);
+        clic1 = null;
+        clic2 = null;
+        return null;
+    }
+
+    public void prochainJoueur() {// permet de passer au joueur 
+        if (joueurCourant == listeJoueurs[0]) {
+            joueurCourant = listeJoueurs[1];
+        }
+        joueurCourant = listeJoueurs[0];
+        nomJoueurCourant.setText(joueurCourant + "");
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel J1Couleur;
+    private javax.swing.JLabel J2Couleur;
     private javax.swing.JPanel PanneauDeJeu;
+    private javax.swing.JPanel PanneauInfos;
+    private javax.swing.JPanel PanneauIntro;
     private javax.swing.JPanel Panneau_nom;
+    private javax.swing.JButton btnValiderNoms;
     private javax.swing.JButton btn_start;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txt_nom_j1;
-    private javax.swing.JTextField txt_nom_j2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField nomJ1;
+    private javax.swing.JTextField nomJ2;
+    private javax.swing.JLabel nomJoueurCourant;
+    private javax.swing.JLabel txtInfos;
+    private javax.swing.JLabel txtPI;
     // End of variables declaration//GEN-END:variables
 }
