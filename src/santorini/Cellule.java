@@ -23,14 +23,22 @@ public class Cellule {
         construction = 0;
     }
     
-    public boolean affecterOuvrier(Ouvrier unOuvrier){
-        // affecte à la cellule un Ouvrier s'il n'y en avait pas 
-        // et renvoie true, false sinon
+    public boolean celluleLibre(){
         if(ouvrierCourant == null){
-            ouvrierCourant = unOuvrier;
             return true;
-        }
-        return false;
+        }return false;
+    }
+    
+    public boolean presenceJoueur(Joueur unJoueur){
+        // Si le joueur possède un ouvrier sur la cellule on renvoie true
+        if(ouvrierCourant == unJoueur.ouvriers[0] || ouvrierCourant == unJoueur.ouvriers[1]){
+            return true;
+        }return false;
+    }
+    
+    public void affecterOuvrier(Ouvrier unOuvrier){
+        // affecte à la cellule un Ouvrier 
+            ouvrierCourant = unOuvrier;
     }
     
     public Ouvrier recupererOuvrier(){

@@ -75,10 +75,30 @@ public class Grille {
         cellule[x][y].affecterOuvrier(unJoueur.ouvriers[1]);
     }
     
-    public boolean cellulesVoisines(int x1, int x2, int y1, int y2){
-        if((x1-x2)<-1 || (x1-x2)>1 || (y1-y2)<-1 || (y1-y2)>1){
+    public boolean cellulesVoisines(Cellule cellule1, Cellule cellule2){
+        if (cellule1 == cellule2){
             return false;
-        }return true;
+        }
+        
+        int x1 = 0;
+        int x2 = 0;
+        int y1 = 0;
+        int y2 = 0;
+        for(int x = 0; x<5;x++){
+            for(int y = 0;y<5;y++){
+                if(cellule[x][y] == cellule1){
+                    x1 = x;
+                    y1 = y;
+                }else if (cellule[x][y]== cellule2){
+                    x2 = x;
+                    y2 = y;
+                }
+            }
+        }
+        if((x1-x2)>=-1 && (x1-x2)<=1 && (y1-y2)>=-1 && (y1-y2)<=1){
+            return true;
+        }
+        return false;
     }
 
     public boolean deplacementPossible(Cellule celluleDepart, Cellule celluleArrivee) {
@@ -92,23 +112,9 @@ public class Grille {
          */
         
         //On retrouve les coordonnées x et y des deux cellules et on fait les tests
-        int xd = 0;
-        int xa = 0;
-        int ya = 0;
-        int yd = 0;
-        for(int x = 0; x<5;x++){
-            for(int y = 0;y<5;y++){
-                if(cellule[x][y] == celluleDepart){
-                    xd = x;
-                    yd = y;
-                }else if (cellule[x][y]== celluleArrivee){
-                    xa = x;
-                    ya = y;
-                }
-            }
-        }
         
-        if (cellulesVoisines(xd, xa, yd, ya)==true // les cellules sont voisines
+        
+        if (cellulesVoisines(celluleDepart, celluleArrivee)==true // les cellules sont voisines
                 && celluleArrivee.constructionMax() == false // le batiemnt n'est pas fini
                 && (celluleArrivee.construction - celluleDepart.construction) <2 // le batiment d'arrivé n'est plus plus haut de 2 ...
                 && celluleArrivee.ouvrierCourant == null){
@@ -125,29 +131,13 @@ public class Grille {
                         (*) Le batiment n'est pas achevé.
                         (*) Les cellules sont voisines*/
         
-        // On recupère la position des cellules 
-        int xd = 0;
-        int xa = 0;
-        int ya = 0;
-        int yd = 0;
-        for(int x = 0; x<5;x++){
-            for(int y = 0;y<5;y++){
-                if(cellule[x][y] == celluleOuvrier){
-                    xd = x;
-                    yd = y;
-                }else if (cellule[x][y]== celluleConst){
-                    xa = x;
-                    ya = y;
-                }
-            }
-        }
-        if (cellulesVoisines(xd, xa, yd, ya)==true 
+        //System.out.print("test construction possible\n");
+        if (cellulesVoisines(celluleOuvrier, celluleConst)==true 
                 && celluleConst.constructionMax() == false // le batiemnt n'est pas fini
                 && celluleConst.ouvrierCourant == null){
             return true;
         }
         return false;
-        
     }
 
     public boolean etreGagnant(Joueur unJoueur) {
@@ -177,9 +167,9 @@ public class Grille {
             for (int j = 0; j < 5; j++) {
                 if (cellule[i][j].ouvrierCourant == unJoueur.ouvriers[0] || cellule[i][j].ouvrierCourant == unJoueur.ouvriers[1]) {
                     // on vérifie qu'il y a un ouvrier du joueur dans la case 
-                    for (int x = 0; i < 5; x++) {
+                    for (int x = 0; x < 5; x++) {
                         // on parcourt toutes les cases de deplacements possibles
-                        for (int y = 0; i < 5; y++) {
+                        for (int y = 0; y < 5; y++) {
                             // si deplacementPossibles sont tous false pour les ouvriers du joueur alors on renvoie true pck il ne peut plus bouger 
                             if (deplacementPossible(cellule[i][j], cellule[x][y]) == true) {
                                 return false;
@@ -200,12 +190,10 @@ public class Grille {
             for (int j = 0; j < 5; j++) {
                 if (cellule[i][j].ouvrierCourant == unJoueur.ouvriers[0] || cellule[i][j].ouvrierCourant == unJoueur.ouvriers[1]) {
                     // on vérifie qu'il y a un ouvrier du joueur dans la case 
-                    for (int x = 0; i < 5; x++) {
+                    for (int x = 0; x < 5; x++) {
                         // on parcourt toutes les cases de deplacements possibles
-                        for (int y = 0; i < 5; y++) {
+                        for (int y = 0; y < 5; y++) {
                             // si deplacementPossibles sont tous false pour les ouvriers du joueur alors on renvoie true pck il ne peut plus bouger 
-                            System.out.println("i = "+i);
-                            System.out.println("j = "+j);
                             if (constructionPossible(cellule[i][j], cellule[x][y]) == true) {
                                 return false;
                             }

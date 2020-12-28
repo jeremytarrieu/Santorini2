@@ -22,8 +22,6 @@ public class Joueur {
     
     public void affecterCouleur(String uneCouleur){
         couleur = uneCouleur;
-        ouvriers[0] = new Ouvrier(this);
-        ouvriers[1] = new Ouvrier(this);
     }
     
     public void ajouterOuvrier(Ouvrier unOuvrier, int numero){
@@ -33,4 +31,11 @@ public class Joueur {
     public void poserConstruction(){//rajouter (if posage de constru return true)
         nbConstruction--;
     }
+    
+    public boolean avoirSesOuvriers(){
+        if(ouvriers[0] == null || ouvriers[1]==null){
+            return false;
+        }return true;
+    }
+    
 }
