@@ -88,21 +88,21 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         nomJ2 = new javax.swing.JTextField();
         nomJ1 = new javax.swing.JTextField();
         btn_start = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         btnValiderNoms = new javax.swing.JButton();
-        J1Couleur = new javax.swing.JLabel();
-        J2Couleur = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jCheckBox15 = new javax.swing.JCheckBox();
+        rougeJ2 = new javax.swing.JButton();
+        bleuJ2 = new javax.swing.JButton();
+        jauneJ2 = new javax.swing.JButton();
+        roseJ2 = new javax.swing.JButton();
+        turquoiseJ2 = new javax.swing.JButton();
+        rougeJ1 = new javax.swing.JButton();
+        bleuJ1 = new javax.swing.JButton();
+        jauneJ1 = new javax.swing.JButton();
+        roseJ1 = new javax.swing.JButton();
+        turquoiseJ1 = new javax.swing.JButton();
+        couleurJ1 = new javax.swing.JLabel();
+        couleurJ2 = new javax.swing.JLabel();
+        txtCouleurJ2 = new javax.swing.JLabel();
+        txtCouleurJ1 = new javax.swing.JLabel();
         PanneauDeJeu = new javax.swing.JPanel();
         PanneauInfos = new javax.swing.JPanel();
         txtPI = new javax.swing.JLabel();
@@ -200,14 +200,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         getContentPane().add(PanneauVictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 500, 600));
 
         Panneau_nom.setBackground(new java.awt.Color(255, 255, 255));
+        Panneau_nom.setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Jouieur 1 : ");
+        jLabel1.setText("Joueur 1 : ");
 
         jLabel2.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Jouieur 2 : ");
+        jLabel2.setText("Joueur 2 : ");
 
         nomJ2.setBackground(new java.awt.Color(255, 255, 255));
         nomJ2.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
@@ -235,14 +236,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Couleur  Joueur 1 :");
-
-        jLabel5.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Couleur Joueur 2 : ");
-
         btnValiderNoms.setBackground(new java.awt.Color(255, 255, 255));
         btnValiderNoms.setFont(new java.awt.Font("Papyrus", 2, 24)); // NOI18N
         btnValiderNoms.setForeground(new java.awt.Color(0, 0, 0));
@@ -253,157 +246,157 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             }
         });
 
-        J1Couleur.setBackground(new java.awt.Color(255, 255, 255));
-        J1Couleur.setFont(new java.awt.Font("Papyrus", 3, 36)); // NOI18N
-        J1Couleur.setForeground(new java.awt.Color(0, 0, 0));
-
-        J2Couleur.setBackground(new java.awt.Color(255, 255, 255));
-        J2Couleur.setFont(new java.awt.Font("Papyrus", 3, 36)); // NOI18N
-        J2Couleur.setForeground(new java.awt.Color(0, 0, 0));
-
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        rougeJ2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurRouge.jpg"))); // NOI18N
+        rougeJ2.setToolTipText("");
+        rougeJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                rougeJ2ActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        bleuJ2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurBleu.jpg"))); // NOI18N
+        bleuJ2.setToolTipText("");
+        bleuJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                bleuJ2ActionPerformed(evt);
             }
         });
 
-        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox5.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        jauneJ2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurJaune.jpg"))); // NOI18N
+        jauneJ2.setToolTipText("");
+        jauneJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                jauneJ2ActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        roseJ2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurRose.jpg"))); // NOI18N
+        roseJ2.setToolTipText("");
+        roseJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                roseJ2ActionPerformed(evt);
             }
         });
 
-        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        turquoiseJ2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurTurquoise.jpg"))); // NOI18N
+        turquoiseJ2.setToolTipText("");
+        turquoiseJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                turquoiseJ2ActionPerformed(evt);
             }
         });
 
-        jCheckBox11.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox11.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox11.addActionListener(new java.awt.event.ActionListener() {
+        rougeJ1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurRouge.jpg"))); // NOI18N
+        rougeJ1.setToolTipText("");
+        rougeJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox11ActionPerformed(evt);
+                rougeJ1ActionPerformed(evt);
             }
         });
 
-        jCheckBox12.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox12.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox12.addActionListener(new java.awt.event.ActionListener() {
+        bleuJ1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurBleu.jpg"))); // NOI18N
+        bleuJ1.setToolTipText("");
+        bleuJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox12ActionPerformed(evt);
+                bleuJ1ActionPerformed(evt);
             }
         });
 
-        jCheckBox13.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox13.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox13.addActionListener(new java.awt.event.ActionListener() {
+        jauneJ1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurJaune.jpg"))); // NOI18N
+        jauneJ1.setToolTipText("");
+        jauneJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox13ActionPerformed(evt);
+                jauneJ1ActionPerformed(evt);
             }
         });
 
-        jCheckBox14.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox14.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox14.addActionListener(new java.awt.event.ActionListener() {
+        roseJ1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurRose.jpg"))); // NOI18N
+        roseJ1.setToolTipText("");
+        roseJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox14ActionPerformed(evt);
+                roseJ1ActionPerformed(evt);
             }
         });
 
-        jCheckBox15.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox15.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox15.addActionListener(new java.awt.event.ActionListener() {
+        turquoiseJ1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/couleurTurquoise.jpg"))); // NOI18N
+        turquoiseJ1.setToolTipText("");
+        turquoiseJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox15ActionPerformed(evt);
+                turquoiseJ1ActionPerformed(evt);
             }
         });
+
+        couleurJ1.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
+        couleurJ1.setForeground(new java.awt.Color(0, 0, 0));
+
+        couleurJ2.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
+        couleurJ2.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtCouleurJ2.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
+        txtCouleurJ2.setForeground(new java.awt.Color(0, 0, 0));
+        txtCouleurJ2.setText("Couleur Joueur 2 : ");
+
+        txtCouleurJ1.setFont(new java.awt.Font("Papyrus", 0, 24)); // NOI18N
+        txtCouleurJ1.setForeground(new java.awt.Color(0, 0, 0));
+        txtCouleurJ1.setText("Couleur  Joueur 1 :");
 
         javax.swing.GroupLayout Panneau_nomLayout = new javax.swing.GroupLayout(Panneau_nom);
         Panneau_nom.setLayout(Panneau_nomLayout);
         Panneau_nomLayout.setHorizontalGroup(
             Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panneau_nomLayout.createSequentialGroup()
-                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Panneau_nomLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(J2Couleur, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Panneau_nomLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Panneau_nomLayout.createSequentialGroup()
-                                .addComponent(jCheckBox15)
-                                .addGap(70, 70, 70)
-                                .addComponent(jCheckBox14)
-                                .addGap(70, 70, 70)
-                                .addComponent(jCheckBox11)
-                                .addGap(70, 70, 70)
-                                .addComponent(jCheckBox13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                                .addComponent(jCheckBox12))
-                            .addGroup(Panneau_nomLayout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addGap(70, 70, 70)
-                                .addComponent(jCheckBox7)
-                                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Panneau_nomLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(J1Couleur, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(Panneau_nomLayout.createSequentialGroup()
-                                        .addGap(70, 70, 70)
-                                        .addComponent(jCheckBox3)
-                                        .addGap(70, 70, 70)
-                                        .addComponent(jCheckBox6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                                        .addComponent(jCheckBox5)
-                                        .addGap(18, 18, 18)))))))
-                .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(Panneau_nomLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panneau_nomLayout.createSequentialGroup()
-                        .addGap(322, 322, 322)
-                        .addComponent(btnValiderNoms, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(63, 63, 63)
+                        .addComponent(btn_start, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Panneau_nomLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Panneau_nomLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addComponent(txtCouleurJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Panneau_nomLayout.createSequentialGroup()
-                                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(72, 72, 72)
+                                .addComponent(btnValiderNoms, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Panneau_nomLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nomJ2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                    .addComponent(nomJ1)))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(couleurJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(Panneau_nomLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(btn_start, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nomJ2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(nomJ1)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panneau_nomLayout.createSequentialGroup()
+                        .addComponent(txtCouleurJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(couleurJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
+                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(Panneau_nomLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Panneau_nomLayout.createSequentialGroup()
+                        .addComponent(rougeJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(bleuJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jauneJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(roseJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(turquoiseJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Panneau_nomLayout.createSequentialGroup()
+                        .addComponent(rougeJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(bleuJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jauneJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(roseJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(turquoiseJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Panneau_nomLayout.setVerticalGroup(
             Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,31 +411,31 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                     .addComponent(nomJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValiderNoms)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCouleurJ1)
+                    .addComponent(couleurJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox7))
-                .addGap(12, 12, 12)
-                .addComponent(J1Couleur, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rougeJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bleuJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jauneJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roseJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turquoiseJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(couleurJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCouleurJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox15)
-                    .addComponent(jCheckBox11)
-                    .addComponent(jCheckBox13)
-                    .addComponent(jCheckBox12)
-                    .addComponent(jCheckBox14))
-                .addGap(21, 21, 21)
-                .addComponent(J2Couleur, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(Panneau_nomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rougeJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bleuJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jauneJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roseJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turquoiseJ2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addComponent(btn_start, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(20, 20, 20))
         );
 
         getContentPane().add(Panneau_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 500, 600));
@@ -493,33 +486,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         setBounds(0, 0, 518, 746);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nomJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomJ1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomJ1ActionPerformed
-
-    private void nomJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomJ2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomJ2ActionPerformed
-
-    private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
-        Panneau_nom.setVisible(false);
-        PanneauDeJeu.setVisible(true);
-        PanneauInfos.setVisible(true);
-        
-    }//GEN-LAST:event_btn_startActionPerformed
-
-    private void btnValiderNomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderNomsActionPerformed
-
-        nomJ1.setEnabled(false);// on bloque la saisie des noms
-        nomJ2.setEnabled(false);
-        btnValiderNoms.setEnabled(false);
-        initialiserPartie();
-        J1Couleur.setText(listeJoueurs[0].couleur + "");
-        J2Couleur.setText(listeJoueurs[1].couleur + "");
-        
-
-    }//GEN-LAST:event_btnValiderNomsActionPerformed
-
     private void finPartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finPartieActionPerformed
         PanneauVictoire.setVisible(false);
         Panneau_nom.setVisible(true);
@@ -532,45 +498,74 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         btnValiderNoms.setEnabled(true);
     }//GEN-LAST:event_finPartieActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void btnValiderNomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderNomsActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+        nomJ1.setEnabled(false);// on bloque la saisie des noms
+        nomJ2.setEnabled(false);
+        btnValiderNoms.setEnabled(false);
+        initialiserPartie();
+        
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_btnValiderNomsActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
+        if(listeJoueurs[0].couleur != listeJoueurs[1].couleur && listeJoueurs[0].couleur != null && listeJoueurs[1].couleur != null){ // on vérifie que les deux couleurs ne sont pas les mêmes
+            Panneau_nom.setVisible(false);
+            PanneauDeJeu.setVisible(true);
+            PanneauInfos.setVisible(true);
+        }   
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_btn_startActionPerformed
 
-    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox11ActionPerformed
+    private void nomJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomJ1ActionPerformed
+    }//GEN-LAST:event_nomJ1ActionPerformed
 
-    private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox12ActionPerformed
+    private void nomJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomJ2ActionPerformed
+    }//GEN-LAST:event_nomJ2ActionPerformed
 
-    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox13ActionPerformed
+    private void rougeJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rougeJ1ActionPerformed
+    listeJoueurs[0].affecterCouleur("rouge");
+    couleurJ1.setText("ROUGE");
+    }//GEN-LAST:event_rougeJ1ActionPerformed
 
-    private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox14ActionPerformed
+    private void bleuJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bleuJ1ActionPerformed
+    listeJoueurs[0].affecterCouleur("bleu");
+    couleurJ1.setText("BLEU");
+    }//GEN-LAST:event_bleuJ1ActionPerformed
 
-    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox15ActionPerformed
+    private void jauneJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jauneJ1ActionPerformed
+    listeJoueurs[0].affecterCouleur("jaune");
+    couleurJ1.setText("JAUNE");
+    }//GEN-LAST:event_jauneJ1ActionPerformed
+
+    private void roseJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roseJ1ActionPerformed
+    listeJoueurs[0].affecterCouleur("rose");
+    couleurJ1.setText("ROSE");
+    }//GEN-LAST:event_roseJ1ActionPerformed
+
+    private void turquoiseJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turquoiseJ1ActionPerformed
+    listeJoueurs[0].affecterCouleur("turquoise");
+    couleurJ1.setText("TURQUOISE");    }//GEN-LAST:event_turquoiseJ1ActionPerformed
+
+    private void rougeJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rougeJ2ActionPerformed
+    listeJoueurs[1].affecterCouleur("rouge");
+    couleurJ2.setText("ROUGE");    }//GEN-LAST:event_rougeJ2ActionPerformed
+
+    private void bleuJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bleuJ2ActionPerformed
+    listeJoueurs[1].affecterCouleur("bleu");
+    couleurJ2.setText("BLEU");    }//GEN-LAST:event_bleuJ2ActionPerformed
+
+    private void jauneJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jauneJ2ActionPerformed
+    listeJoueurs[1].affecterCouleur("jaune");
+    couleurJ2.setText("JAUNE");    }//GEN-LAST:event_jauneJ2ActionPerformed
+
+    private void roseJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roseJ2ActionPerformed
+    listeJoueurs[1].affecterCouleur("rose");
+    couleurJ2.setText("ROSE");    }//GEN-LAST:event_roseJ2ActionPerformed
+
+    private void turquoiseJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turquoiseJ2ActionPerformed
+    listeJoueurs[1].affecterCouleur("turquoise");
+    couleurJ2.setText("TURQUOISE");    }//GEN-LAST:event_turquoiseJ2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -717,37 +712,37 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel J1Couleur;
-    private javax.swing.JLabel J2Couleur;
     private javax.swing.JPanel PanneauDeJeu;
     private javax.swing.JPanel PanneauInfos;
     private javax.swing.JPanel PanneauIntro;
     private javax.swing.JPanel PanneauVictoire;
     private javax.swing.JPanel Panneau_nom;
+    private javax.swing.JButton bleuJ1;
+    private javax.swing.JButton bleuJ2;
     private javax.swing.JButton btnValiderNoms;
     private javax.swing.JButton btn_start;
+    private javax.swing.JLabel couleurJ1;
+    private javax.swing.JLabel couleurJ2;
     private javax.swing.JButton finPartie;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton jauneJ1;
+    private javax.swing.JButton jauneJ2;
     private javax.swing.JTextField nomJ1;
     private javax.swing.JTextField nomJ2;
     private javax.swing.JLabel nomJoueurCourant;
     private javax.swing.JLabel nomVainqueur;
+    private javax.swing.JButton roseJ1;
+    private javax.swing.JButton roseJ2;
+    private javax.swing.JButton rougeJ1;
+    private javax.swing.JButton rougeJ2;
+    private javax.swing.JButton turquoiseJ1;
+    private javax.swing.JButton turquoiseJ2;
+    private javax.swing.JLabel txtCouleurJ1;
+    private javax.swing.JLabel txtCouleurJ2;
     private javax.swing.JLabel txtInfos;
     private javax.swing.JLabel txtPI;
     // End of variables declaration//GEN-END:variables
